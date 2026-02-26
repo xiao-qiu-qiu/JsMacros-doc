@@ -74,8 +74,8 @@ code .
 
 | 方法 | 描述  |
 | ----------- | ------------------------------------ |
-| ![](https://cdn.discordapp.com/emojis/1136842194586697878.webp?size=80) | 这个状态是`fork`状态, 在这个状态上运行的宏不会阻塞运行线程的运行 |
-| ![](https://cdn.discordapp.com/emojis/1136842096775532634.webp?size=80) | 这个状态是`joined`状态, 在这个状态上运行的宏会阻塞运行线程的运行 |
+| ![](https://img.mynotes.world//202602262322605.png) | 这个状态是`fork`状态, 在这个状态上运行的宏不会阻塞运行线程的运行 |
+| ![](https://img.mynotes.world//202602262323456.png) | 这个状态是`joined`状态, 在这个状态上运行的宏会阻塞运行线程的运行 |
 
 默认情况下, 按键触发的宏都是`fork`状态, 如果为`joined`状态脚本就不能运行超过500ms, 不然会触发看门狗, 因为按键触发是在主线程进行的, 所以正常就使用`fork`状态就行。
 !!! tip "看门狗"
@@ -110,9 +110,9 @@ JsMacros.on('SendMessage', true, JavaWrapper.methodToJava((e, context) => {
 
 | 方法 | 描述  |
 | ----------- | ------------------------------------ |
-| ![](https://cdn.discordapp.com/emojis/937122706346889256.webp?size=80) | 松开按键触发 |
-| ![](https://cdn.discordapp.com/emojis/937122592588959795.webp?size=80) | 按下按键触发 |
-| ![](https://cdn.discordapp.com/emojis/937122792179122176.webp?size=80) | 松开和按下都会触发 |
+| ![](https://img.mynotes.world//202602262324309.png) | 松开按键触发 |
+| ![](https://img.mynotes.world//202602262324360.png) | 按下按键触发 |
+| ![](https://img.mynotes.world//202602262326874.png) | 松开和按下都会触发 |
 
 ### 服务触发
 ![](https://img.mynotes.world//202602262137967.png)

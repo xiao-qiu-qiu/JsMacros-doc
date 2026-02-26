@@ -40,7 +40,7 @@ player.attack()
 ### attack(entity)
 ```javascript
 const player = Player.getPlayer()
-const targetEntity = World.getEntities('zombie')[0]
+const targetEntity = World.getEntities(4.5, 'zombie')[0]
 player.attack(targetEntity)
 ```
 这里通过`World.getEntities('zombie')`获取到一个`EntityHelper`数组, 然后将数组的第一个元素作为目标实体进行攻击。
@@ -66,24 +66,6 @@ player.attack(targetEntity)
         }
         ```
         这里使用了一个死循环, 每隔100ms就对距离玩家4.5格以内的第一个`zombie`实体进行攻击。
-## setLongAttack(false)
-```javascript
-const player = Player.getPlayer()
-player.setLongAttack(false)
-```
-使用`setLongAttack(true)`方法可以开启长攻击, 长按左键。
-## setLongAttack(true)
-```javascript
-const player = Player.getPlayer()
-player.setLongAttack(true)
-```
-使用`setLongAttack(false)`方法可以关闭长攻击。
-!!! question "挖掘方块"
-    制作一个挖掘方块的功能, 让玩家挖掘脸上的方块。
-    ```javascript
-    const player = Player.getPlayer()
-
-    ```
 ## 交互
 ### interact()
 ```javascript
@@ -98,15 +80,3 @@ const targetEntity = World.getEntities('villager')[0]
 player.interact(targetEntity)
 ```
 使用`interact(entity)`方法可以与指定实体进行交互。
-### setLongInteract(false)
-```javascript
-const player = Player.getPlayer()
-player.setLongInteract(false)
-```
-使用`setLongInteract(true)`方法可以开启长交互, 长按右键。
-## setLongInteract(true)
-```javascript
-const player = Player.getPlayer()
-player.setLongInteract(true)
-```
-使用`setLongInteract(false)`方法可以关闭长交互。

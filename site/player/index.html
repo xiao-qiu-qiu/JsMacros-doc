@@ -400,28 +400,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setlongattackfalse" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongAttack(false)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setlongattacktrue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongAttack(true)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -455,30 +433,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#setlonginteractfalse" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongInteract(false)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setlonginteracttrue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongInteract(true)
-      
-    </span>
-  </a>
   
 </li>
       
@@ -687,28 +643,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#setlongattackfalse" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongAttack(false)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setlongattacktrue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongAttack(true)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -742,30 +676,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#setlonginteractfalse" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongInteract(false)
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setlonginteracttrue" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        setLongInteract(true)
-      
-    </span>
-  </a>
   
 </li>
       
@@ -828,7 +740,7 @@ Chat.log(playerName)方法可以输出文本到屏幕。</p>
 使用<code>attack()</code>方法可以对准心处进行攻击, 相当于按下左键。</p>
 <h3 id="attackentity">attack(entity)<a class="headerlink" href="#attackentity" title="Permanent link">&para;</a></h3>
 <p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">targetEntity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">World</span><span class="p">.</span><span class="nx">getEntities</span><span class="p">(</span><span class="s1">&#39;zombie&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">targetEntity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">World</span><span class="p">.</span><span class="nx">getEntities</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;zombie&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
 </span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nx">player</span><span class="p">.</span><span class="nx">attack</span><span class="p">(</span><span class="nx">targetEntity</span><span class="p">)</span>
 </span></code></pre></div>
 这里通过<code>World.getEntities('zombie')</code>获取到一个<code>EntityHelper</code>数组, 然后将数组的第一个元素作为目标实体进行攻击。
@@ -855,44 +767,18 @@ Chat.log(playerName)方法可以输出文本到屏幕。</p>
 这里使用了一个死循环, 每隔100ms就对距离玩家4.5格以内的第一个<code>zombie</code>实体进行攻击。</p>
 </details>
 </div>
-<h2 id="setlongattackfalse">setLongAttack(false)<a class="headerlink" href="#setlongattackfalse" title="Permanent link">&para;</a></h2>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">setLongAttack</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
-</span></code></pre></div>
-使用<code>setLongAttack(true)</code>方法可以开启长攻击, 长按左键。</p>
-<h2 id="setlongattacktrue">setLongAttack(true)<a class="headerlink" href="#setlongattacktrue" title="Permanent link">&para;</a></h2>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">setLongAttack</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span></code></pre></div>
-使用<code>setLongAttack(false)</code>方法可以关闭长攻击。</p>
-<div class="admonition question">
-<p class="admonition-title">挖掘方块</p>
-<p>制作一个挖掘方块的功能, 让玩家挖掘脸上的方块。
-<div class="language-javascript highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span></code></pre></div></p>
-</div>
 <h2 id="_5">交互<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="interact">interact()<a class="headerlink" href="#interact" title="Permanent link">&para;</a></h3>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">interact</span><span class="p">()</span>
+<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">interact</span><span class="p">()</span>
 </span></code></pre></div>
 使用<code>interact()</code>方法可以与准心处进行交互, 相当于按下右键。</p>
 <h3 id="interactentity">interact(entity)<a class="headerlink" href="#interactentity" title="Permanent link">&para;</a></h3>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">targetEntity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">World</span><span class="p">.</span><span class="nx">getEntities</span><span class="p">(</span><span class="s1">&#39;villager&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nx">player</span><span class="p">.</span><span class="nx">interact</span><span class="p">(</span><span class="nx">targetEntity</span><span class="p">)</span>
+<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">targetEntity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">World</span><span class="p">.</span><span class="nx">getEntities</span><span class="p">(</span><span class="s1">&#39;villager&#39;</span><span class="p">)[</span><span class="mf">0</span><span class="p">]</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nx">player</span><span class="p">.</span><span class="nx">interact</span><span class="p">(</span><span class="nx">targetEntity</span><span class="p">)</span>
 </span></code></pre></div>
 使用<code>interact(entity)</code>方法可以与指定实体进行交互。</p>
-<h3 id="setlonginteractfalse">setLongInteract(false)<a class="headerlink" href="#setlonginteractfalse" title="Permanent link">&para;</a></h3>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">setLongInteract</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
-</span></code></pre></div>
-使用<code>setLongInteract(true)</code>方法可以开启长交互, 长按右键。</p>
-<h2 id="setlonginteracttrue">setLongInteract(true)<a class="headerlink" href="#setlonginteracttrue" title="Permanent link">&para;</a></h2>
-<p><div class="language-javascript highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kd">const</span><span class="w"> </span><span class="nx">player</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Player</span><span class="p">.</span><span class="nx">getPlayer</span><span class="p">()</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nx">player</span><span class="p">.</span><span class="nx">setLongInteract</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</span></code></pre></div>
-使用<code>setLongInteract(false)</code>方法可以关闭长交互。</p>
 
 
 

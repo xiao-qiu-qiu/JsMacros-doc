@@ -390,6 +390,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="运行宏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按键触发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        服务触发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -645,6 +673,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="运行宏">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        按键触发
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        服务触发
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -707,7 +763,8 @@
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>npm install
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>code .
 </span></code></pre></div>
-克隆后使用VSCode打开, 然后安装依赖, 即可看到类型提示和代码补全等功能。</p>
+克隆后使用VSCode打开, 然后安装依赖, 即可看到类型提示和代码补全等功能。
+<img alt="" src="https://img.mynotes.world//202602262111399.png" /></p>
 <h2 id="_4">创建第一个宏<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">js</label><label for="__tabbed_1_2">ts</label></div>
 <div class="tabbed-content">
@@ -719,7 +776,8 @@
 <div class="tabbed-block">
 <p><div class="language-ts highlight"><span class="filename">test.ts</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nx">Chat</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello, world!&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-使用ts需要进行编译, 请提前安装依赖。
+把文件放入.minecraft/config/jsMacros/Macros/src目录下。</p>
+<p>使用ts需要进行编译, 请提前安装依赖。
 <div class="language-text highlight"><span class="filename">cmd</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>npm install
 </span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>npm run build
 </span></code></pre></div>
@@ -738,16 +796,97 @@
 </thead>
 <tbody>
 <tr>
-<td><code>按键</code></td>
-<td>按下对应的按键即可运行宏</td>
+<td>按键</td>
+<td>按下对应的按键即可运行, 可以同时运行多个</td>
 </tr>
 <tr>
-<td><code>服务</code></td>
-<td>在服务内运行对应的宏</td>
+<td>服务</td>
+<td>在服务内运行对应的宏, 不可用同时运行多个, 可以设置启动客户端自动启动脚本</td>
 </tr>
 </tbody>
 </table>
 <p>这两种方式没什么区别, 按键方式更方便, 但是服务方式更灵活。</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>运行的脚本不会随着退出服务器而停止, 只有退出游戏才会停止。</p>
+</div>
+<h3 id="_6">按键触发<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://img.mynotes.world//202602251554510.png" />
+使用对应的按键触发宏, 运行后需要在左下角正在运行关闭宏来结束运行, 可以同时运行多个宏。</p>
+<p>图中的fork和joined状态是Jsmacros的运行状态, 具体含义如下:</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="https://cdn.discordapp.com/emojis/1136842194586697878.webp?size=80" /></td>
+<td>这个状态是<code>fork</code>状态, 在这个状态上运行的宏不会阻塞运行线程的运行</td>
+</tr>
+<tr>
+<td><img alt="" src="https://cdn.discordapp.com/emojis/1136842096775532634.webp?size=80" /></td>
+<td>这个状态是<code>joined</code>状态, 在这个状态上运行的宏会阻塞运行线程的运行</td>
+</tr>
+</tbody>
+</table>
+<p>默认情况下, 按键触发的宏都是<code>fork</code>状态, 如果为<code>joined</code>状态脚本就不能运行超过500ms, 不然会触发看门狗, 因为按键触发是在主线程进行的, 所以正常就使用<code>fork</code>状态就行。</p>
+<div class="admonition tip">
+<p class="admonition-title">看门狗</p>
+<p>当宏运行在主线程时间超过500ms, 则会触发看门狗, 强制结束宏的运行, 防止宏把游戏卡死。</p>
+</div>
+<p>另外在事件监听的时候也可以设置Joined, 是否阻塞运行线程的运行, 在Tick事件等事件中阻塞无任何意义, 如果在</p>
+<ul>
+<li>SendMessage</li>
+<li>RecvMessage</li>
+<li>JoinedTick</li>
+<li>SignEdit</li>
+<li>ClickSlot</li>
+<li>DropSlot</li>
+</ul>
+<p>触发, 则会阻塞主线程的运行, 这样可以修改事件的行为(比如修改RecvMessage收到的消息, 修改SendMessage发送的消息)。 <code>context.releaseLock()</code>可以解除阻塞, 如果阻塞超过500ms会触发看门狗。
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>JsMacros.on(&#39;SendMessage&#39;, true, JavaWrapper.methodToJava((e) =&gt; {
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    Chat.log(`发送消息: ${e.message}`)
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    e.cancel()
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    Time.sleep(1000)
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>}))
+</span></code></pre></div>
+上面触发了看门狗因为joined把主线程阻塞了, 所以应该完成cancel后先解除线程锁。
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>JsMacros.on(&#39;SendMessage&#39;, true, JavaWrapper.methodToJava((e, context) =&gt; {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    Chat.log(`发送消息: ${e.message}`)
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    e.cancel()
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    context.releaseLock()
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    Time.sleep(1000)
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}))
+</span></code></pre></div>
+按键触发的宏可以设置触发条件, 有三种触发条件:</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="https://cdn.discordapp.com/emojis/937122706346889256.webp?size=80" /></td>
+<td>松开按键触发</td>
+</tr>
+<tr>
+<td><img alt="" src="https://cdn.discordapp.com/emojis/937122592588959795.webp?size=80" /></td>
+<td>按下按键触发</td>
+</tr>
+<tr>
+<td><img alt="" src="https://cdn.discordapp.com/emojis/937122792179122176.webp?size=80" /></td>
+<td>松开和按下都会触发</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">服务触发<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><img alt="" src="https://img.mynotes.world//202602262137967.png" />
+服务触发的宏可以设置启动客户端自动启动脚本, 运行后关闭需要在服务内关闭运行状态, 不能同时运行多个。</p>
 
 
 

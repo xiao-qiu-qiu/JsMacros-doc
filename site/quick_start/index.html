@@ -847,19 +847,19 @@
 <li>DropSlot</li>
 </ul>
 <p>触发, 则会阻塞主线程的运行, 这样可以修改事件的行为(比如修改RecvMessage收到的消息, 修改SendMessage发送的消息)。 <code>context.releaseLock()</code>可以解除阻塞, 如果阻塞超过500ms会触发看门狗。
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>JsMacros.on(&#39;SendMessage&#39;, true, JavaWrapper.methodToJava((e) =&gt; {
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    Chat.log(`发送消息: ${e.message}`)
-</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    e.cancel()
-</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    Time.sleep(1000)
-</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>}))
+<div class="language-js highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nx">JsMacros</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;SendMessage&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">JavaWrapper</span><span class="p">.</span><span class="nx">methodToJava</span><span class="p">((</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="nx">Chat</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`发送消息: </span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">cancel</span><span class="p">()</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nx">Time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mf">1000</span><span class="p">)</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">}))</span>
 </span></code></pre></div>
 上面触发了看门狗因为joined把主线程阻塞了, 所以应该完成cancel后先解除线程锁。
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>JsMacros.on(&#39;SendMessage&#39;, true, JavaWrapper.methodToJava((e, context) =&gt; {
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>    Chat.log(`发送消息: ${e.message}`)
-</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    e.cancel()
-</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    context.releaseLock()
-</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    Time.sleep(1000)
-</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>}))
+<div class="language-js highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nx">JsMacros</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;SendMessage&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">JavaWrapper</span><span class="p">.</span><span class="nx">methodToJava</span><span class="p">((</span><span class="nx">e</span><span class="p">,</span><span class="w"> </span><span class="nx">context</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="nx">Chat</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`发送消息: </span><span class="si">${</span><span class="nx">e</span><span class="p">.</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">)</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nx">e</span><span class="p">.</span><span class="nx">cancel</span><span class="p">()</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="nx">context</span><span class="p">.</span><span class="nx">releaseLock</span><span class="p">()</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="nx">Time</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mf">1000</span><span class="p">)</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}))</span>
 </span></code></pre></div>
 按键触发的宏可以设置触发条件, 有三种触发条件:</p>
 <table>

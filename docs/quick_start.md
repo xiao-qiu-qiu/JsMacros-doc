@@ -48,7 +48,7 @@ code .
     Chat.log("Hello, world!")
     ```
     把文件放入.minecraft/config/jsMacros/Macros/src目录下。
-    
+
     使用ts需要进行编译, 请提前安装依赖。
     ``` cmd title="cmd"
     npm install
@@ -90,7 +90,7 @@ code .
 - DropSlot
 
 触发, 则会阻塞主线程的运行, 这样可以修改事件的行为(比如修改RecvMessage收到的消息, 修改SendMessage发送的消息)。 `context.releaseLock()`可以解除阻塞, 如果阻塞超过500ms会触发看门狗。
-```
+``` js
 JsMacros.on('SendMessage', true, JavaWrapper.methodToJava((e) => {
     Chat.log(`发送消息: ${e.message}`)
     e.cancel()
@@ -98,7 +98,7 @@ JsMacros.on('SendMessage', true, JavaWrapper.methodToJava((e) => {
 }))
 ```
 上面触发了看门狗因为joined把主线程阻塞了, 所以应该完成cancel后先解除线程锁。
-```
+``` js
 JsMacros.on('SendMessage', true, JavaWrapper.methodToJava((e, context) => {
     Chat.log(`发送消息: ${e.message}`)
     e.cancel()

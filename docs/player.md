@@ -13,7 +13,7 @@ const player = Player.getPlayer()
 const player = Player.getPlayer()
 const playerName = player.getName().getString()
 ```
-在Jsmacros里面获取到的文本内容都是经过`TextHelper`包装的, 可以使用Jsmacros的方式来处理文本内容, 如果需要获取字符串的话需要再进行`getString()`。 
+在JsMacros里面获取到的文本内容都是经过`TextHelper`包装的, 可以使用JsMacros的方式来处理文本内容, 如果需要获取字符串的话需要再进行`getString()`。 
 !!! question "输出玩家名字"
     接下来尝试在屏幕输出玩家名字。
 

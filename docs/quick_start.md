@@ -3,11 +3,11 @@ icon: lucide/rocket
 ---
 
 # 快速开始
-## 获取Jsmacros
+## 获取JsMacros
 !!! warning "注意"
     \>= 1.21.1需要从github构建, 或者修改fabric.mod.json(版本没有重大更新的情况),
     或者从GitHub fork下来使用action构建
-> 获取[Jsmacros](https://modrinth.com/mod/jsmacros), 并安装到你的Minecraft客户端中。
+> 获取[JsMacros](https://modrinth.com/mod/jsmacros), 并安装到你的Minecraft客户端中。
 ## 目录结构
 ```
 .minecraft/
@@ -15,8 +15,8 @@ icon: lucide/rocket
   └── jsMacros/
     └── LanguageExtensions # 语言扩展, 如果需要使用其他语言, 请将其放入此目录
     └── Macros/ # 存放宏文件
-    └── options.json # Jsmacros配置
-    └── options.json.v2.bak # Jsmacros配置备份
+    └── options.json # JsMacros配置
+    └── options.json.v2.bak # JsMacros配置备份
 ```
 ## 创建开发环境
 !!! note "提示"
@@ -70,7 +70,7 @@ code .
 ![](https://img.mynotes.world//202602251554510.png)
 使用对应的按键触发宏, 运行后需要在左下角正在运行关闭宏来结束运行, 可以同时运行多个宏。
 
-图中的fork和joined状态是Jsmacros的运行状态, 具体含义如下:
+图中的fork和joined状态是JsMacros的运行状态, 具体含义如下:
 
 | 方法 | 描述  |
 | ----------- | ------------------------------------ |

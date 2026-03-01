@@ -67,7 +67,7 @@ player.attack(targetEntity)
 
     > `player.attack(entity)` 方法可以对指定实体进行攻击。
 
-    > `Time.sleep(100)` 方法可以让程序暂停一段时间。
+    > `Time.sleep(100)` 方法可以让程序暂停100ms。
     
     ???- tip "答案"
         ``` javascript
@@ -107,7 +107,7 @@ player.interactEntity(targetEntity, false)
 使用`interactEntity(entity, offHand)`方法可以与指定实体进行交互。
 
 `offHand`参数是控制交互用的左右手的, 左手为true, 右手为false。
-!!! warning "注意"
+!!! warning "注意反作弊"
     此方法会产生原版不可能发生的发包——即使你交互的村民在你的交互距离内，并且你正看着它，使用此方法交互也会让你被反作弊检测到！
 
     1. 用右手交互，会被检测 (GrimAC-PacketOrderC) 因为这个方法少发了 InteractAt 包 (1.8+)
@@ -119,11 +119,13 @@ player.interactEntity(targetEntity, false)
     所以在有反作弊的服请谨慎使用此方法！
     可以替换为转头到目标实体, 然后用`interact()`方法进行交互。(当然 转头要是写不好也会被检测到就是了)
 
+    ==本提示只会出现在这种JsMacros的方法本身有隐藏问题的地方。在其他明显会被反作弊检测到的方法或实例中不会出现==
+
 ### interactBlock(x, y, z, direction, offHand)
 
 使用`interactBlock(x, y, z, direction, offHand)`方法可以与指定方块进行交互。
 
-|参数          |描述              |
+| 参数         | 描述             |
 | ----------- | -----------------|
 | `x`         | 交互目标方块的x坐标 |
 | `y`         | 交互目标方块的y坐标 |
@@ -168,3 +170,45 @@ player.interactBlock(0, -61, 0, 'up', false)
     在此间你根本没有改变脚本内容。但脚本的两次执行却带来了不同的结果。
 
     在以后的写脚本旅途中你一定会遇到类似这样的情况。**理解这样的问题本质，很有利于你以后的debug！**
+
+!!! question "种树光环"
+    制作一个种树光环, 让玩家自动与旁边的草方块交互进行种树。
+    需要方法:
+    > `Player.getPlayer()` 方法可以获取到玩家对象。
+
+    > `World.findBlocksMatching("minecraft:grass_block", 1)` 方法可以获取到玩家所在区块以及周围一圈区块内的所有草方块。
+
+    > `block.toBlockPos().distanceTo(Player.getPlayer())` 方法可以获取到方块与玩家的距离。
+
+    > `player.interactBlock(x, y, z, direction, offHand)` 方法可以与指定方块进行交互。
+
+    > `Time.sleep(100)` 方法可以让程序暂停100ms。
+    
+    ???- tip "答案"
+        ``` javascript
+        while (true) {
+            const player = Player.getPlayer()
+            const targetBlocks = World.findBlocksMatching("minecraft:grass_block", 1)
+            for (let block of targetBlocks) { // 遍历草方块列表里所有草方块
+                // 判断每个草方块距离玩家的距离，若在玩家周围4.5格范围内则用主手与它的顶面交互
+                if (block.toBlockPos().distanceTo(Player.getPlayer()) < 4.5) {
+                    player.interactBlock(block.x, block.y, block.z, 'up', false)
+                }
+            }
+            Time.sleep(100)
+        }
+        ```
+        这里使用了一个死循环, 每隔100ms就搜索玩家所在区块及周围一圈区块里所有草方块，遍历每个方块，判断是否在玩家周围4.5格范围内，若在 则用主手与它的顶面交互。
+
+        现在拿上树苗试试吧！
+
+### interactItem(offHand)
+
+使用`interactItem(offHand)`方法可以用你手中的物品进行交互。如用水瓶接水或打开服务器菜单等，大部分情况等效于`interact()`，但这个interactItem(offHand)可以控制左右手
+
+`offHand`参数是控制交互用的左右手的, 左手为true, 右手为false。
+
+```javascript
+const player = Player.getPlayer()
+player.interactItem(false)
+```
